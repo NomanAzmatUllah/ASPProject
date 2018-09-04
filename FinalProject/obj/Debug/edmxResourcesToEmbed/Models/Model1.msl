@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="project1ModelStoreContainer" CdmEntityContainer="project1Entities">
+    <EntitySetMapping Name="admin_signup">
+      <EntityTypeMapping TypeName="project1Model.admin_signup">
+        <MappingFragment StoreEntitySet="admin_signup">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+          <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+          <ScalarProperty Name="admin_c_password" ColumnName="admin_c_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departments">
+      <EntityTypeMapping TypeName="project1Model.department">
+        <MappingFragment StoreEntitySet="department">
+          <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+          <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="department1">
+      <EntityTypeMapping TypeName="project1Model.department1">
+        <MappingFragment StoreEntitySet="department1">
+          <ScalarProperty Name="dep_id1" ColumnName="dep_id1" />
+          <ScalarProperty Name="dep_name1" ColumnName="dep_name1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_register">
+      <EntityTypeMapping TypeName="project1Model.user_register">
+        <MappingFragment StoreEntitySet="user_register">
+          <ScalarProperty Name="reg_id" ColumnName="reg_id" />
+          <ScalarProperty Name="users_name" ColumnName="users_name" />
+          <ScalarProperty Name="user_f_name" ColumnName="user_f_name" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_cnic" ColumnName="user_cnic" />
+          <ScalarProperty Name="user_reg_date" ColumnName="user_reg_date" />
+          <ScalarProperty Name="user_phonenum" ColumnName="user_phonenum" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="user_address" ColumnName="user_address" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="user_hecPercentage" ColumnName="user_hecPercentage" />
+          <ScalarProperty Name="yearofpassingexam" ColumnName="yearofpassingexam" />
+          <ScalarProperty Name="userdep_id" ColumnName="userdep_id" />
+          <ScalarProperty Name="userdep_id1" ColumnName="userdep_id1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

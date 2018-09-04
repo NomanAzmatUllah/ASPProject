@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="project1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin_signup">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="admin_email" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="admin_password" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="admin_c_password" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="dep_id" />
+    </Key>
+    <Property Name="dep_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dep_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="department1">
+    <Key>
+      <PropertyRef Name="dep_id1" />
+    </Key>
+    <Property Name="dep_id1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dep_name1" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_register">
+    <Key>
+      <PropertyRef Name="reg_id" />
+    </Key>
+    <Property Name="reg_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="users_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="user_f_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="user_email" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="user_cnic" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="user_reg_date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="user_phonenum" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="gender" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="user_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_status" Type="int" />
+    <Property Name="user_hecPercentage" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="yearofpassingexam" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="userdep_id" Type="int" />
+    <Property Name="userdep_id1" Type="int" />
+  </EntityType>
+  <Association Name="FK__user_regi__userd__1920BF5C">
+    <End Role="department" Type="Self.department" Multiplicity="0..1" />
+    <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department">
+        <PropertyRef Name="dep_id" />
+      </Principal>
+      <Dependent Role="user_register">
+        <PropertyRef Name="userdep_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__user_regi__userd__1A14E395">
+    <End Role="department1" Type="Self.department1" Multiplicity="0..1" />
+    <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department1">
+        <PropertyRef Name="dep_id1" />
+      </Principal>
+      <Dependent Role="user_register">
+        <PropertyRef Name="userdep_id1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="project1ModelStoreContainer">
+    <EntitySet Name="admin_signup" EntityType="Self.admin_signup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="department1" EntityType="Self.department1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_register" EntityType="Self.user_register" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__user_regi__userd__1920BF5C" Association="Self.FK__user_regi__userd__1920BF5C">
+      <End Role="department" EntitySet="department" />
+      <End Role="user_register" EntitySet="user_register" />
+    </AssociationSet>
+    <AssociationSet Name="FK__user_regi__userd__1A14E395" Association="Self.FK__user_regi__userd__1A14E395">
+      <End Role="department1" EntitySet="department1" />
+      <End Role="user_register" EntitySet="user_register" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

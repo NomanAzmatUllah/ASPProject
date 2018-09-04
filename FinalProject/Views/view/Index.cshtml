@@ -1,0 +1,120 @@
+﻿@model IEnumerable<FinalProject.Models.user_register>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <h1>Admin Mr @Session["user"] </h1>
+
+<h2>Index</h2>
+
+<style>
+   .th
+   {
+
+        font-family: 'Tangerine', serif;
+        font-size: 12px;
+        color: black;
+
+
+   }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-responsive">
+    <tr>
+        <th>
+           Name 
+        </th>
+        <th>
+            F_Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+           Cnic
+        </th>
+        <th>
+            Reg_Date
+        </th>
+        <th>
+           P_Number
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Status
+        </th>
+        @*<th>
+            Hec-Per
+        </th>*@
+        <th>
+          Year     
+           </th>
+        <th>
+            Dep-Name
+        </th>
+        <th>
+          Dep-Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.users_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_f_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_cnic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_reg_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_phonenum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_status)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.user_hecPercentage)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.yearofpassingexam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department.dep_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department1.dep_name1)
+        </td>
+        <td>
+            @Html.ActionLink("Approve", "Edit", new { id=item.reg_id }) |
+            @Html.ActionLink("View", "Details", new { id=item.reg_id }) 
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.reg_id })*@
+        </td>
+    </tr>
+}
+
+</table>

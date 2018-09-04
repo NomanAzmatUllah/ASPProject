@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "checkpanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<h2></h2>
+
+<style>
+
+
+    h2 {
+            font-family: 'Tangerine', serif;
+            font-size: 35px;
+            color: black;
+        }
+    h4 {
+            font-family: 'Tangerine', serif;
+            font-size: 35px;
+            color: white;
+        }
+ h3 {
+            font-family: 'Tangerine', serif;
+            font-size: 35px;
+            color: white;
+        }
+  
+    .contain{
+        height:146px;
+        width:300px;
+        color:white;
+        background-color:black;
+        border-bottom-right-radius: 90px;
+        border-bottom-left-radius: 29px;
+    }
+    .image{
+            height: 101px;
+            margin-left: 195px
+    }
+    .image1{
+            height: 101px;
+            margin-left: 195px
+    }
+</style>
+
+
+
+<div class="contain">
+    <div>
+        <h4>Total Applications</h4>
+    </div>
+    
+         
+    <div class="img-circle img-responsive">
+         <img   class="image" src="~/images/icontexto-user-web20-mogulus.ico" />
+             </div>
+    <div style="margin-top: -101px;margin-left: 102px;">
+        <h3>@ViewBag.total</h3>
+    </div>
+                 </div> 
+        
+<div class="contain" style="margin-left: 319px;
+    margin-top: -157px;">
+    <div>
+        <h4>Approved Application</h4>
+    </div>
+
+
+    <div class="img-circle img-responsive">
+        <img class="image" src="~/images/icontexto-user-web20-mogulus.ico" />
+          </div>
+    <div style="margin-top: -101px;margin-left: 102px;"><h3>@ViewBag.approved</h3></div>
+
+              </div>
+
+<div class="contain" style="margin-left:629px;margin-top: -157px;">
+    <div>
+        <h4>Pending Application</h4>
+    </div>
+       <div class="img-circle img-responsive">
+            <img class="image" src="~/images/icontexto-user-web20-mogulus.ico" />
+        </div>
+    <div style="margin-top: -101px;margin-left: 102px;"><h3>@ViewBag.pending</h3></div>
+
+</div>
+
+<div class="contain" style="margin-left:943px;margin-top: -157px;">
+    <div>
+        <h4>Rejected Application</h4>
+    </div>
+    
+    <div class="img-circle img-responsive">
+        <img class="image" src="~/images/icontexto-user-web20-mogulus.ico" />
+        
+    </div>
+         <div style="margin-top: -101px;margin-left: 102px;"><h3>@ViewBag.rejected</h3></div>
+</div>
+  
+                

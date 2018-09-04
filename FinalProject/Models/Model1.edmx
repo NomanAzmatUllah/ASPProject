@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="project1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin_signup">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="admin_email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="admin_password" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="admin_c_password" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="dep_id" />
+          </Key>
+          <Property Name="dep_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dep_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department1">
+          <Key>
+            <PropertyRef Name="dep_id1" />
+          </Key>
+          <Property Name="dep_id1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dep_name1" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_register">
+          <Key>
+            <PropertyRef Name="reg_id" />
+          </Key>
+          <Property Name="reg_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="users_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="user_f_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="user_email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="user_cnic" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="user_reg_date" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="user_phonenum" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="user_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_status" Type="int" />
+          <Property Name="user_hecPercentage" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="yearofpassingexam" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="userdep_id" Type="int" />
+          <Property Name="userdep_id1" Type="int" />
+        </EntityType>
+        <Association Name="FK__user_regi__userd__1920BF5C">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="dep_id" />
+            </Principal>
+            <Dependent Role="user_register">
+              <PropertyRef Name="userdep_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user_regi__userd__1A14E395">
+          <End Role="department1" Type="Self.department1" Multiplicity="0..1" />
+          <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department1">
+              <PropertyRef Name="dep_id1" />
+            </Principal>
+            <Dependent Role="user_register">
+              <PropertyRef Name="userdep_id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="project1ModelStoreContainer">
+          <EntitySet Name="admin_signup" EntityType="Self.admin_signup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department1" EntityType="Self.department1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_register" EntityType="Self.user_register" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__user_regi__userd__1920BF5C" Association="Self.FK__user_regi__userd__1920BF5C">
+            <End Role="department" EntitySet="department" />
+            <End Role="user_register" EntitySet="user_register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user_regi__userd__1A14E395" Association="Self.FK__user_regi__userd__1A14E395">
+            <End Role="department1" EntitySet="department1" />
+            <End Role="user_register" EntitySet="user_register" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="project1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin_signup">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="admin_email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="admin_password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="admin_c_password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="dep_id" />
+          </Key>
+          <Property Name="dep_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dep_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="user_register" Relationship="Self.FK__user_regi__userd__1920BF5C" FromRole="department" ToRole="user_register" />
+        </EntityType>
+        <EntityType Name="department1">
+          <Key>
+            <PropertyRef Name="dep_id1" />
+          </Key>
+          <Property Name="dep_id1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dep_name1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="user_register" Relationship="Self.FK__user_regi__userd__1A14E395" FromRole="department1" ToRole="user_register" />
+        </EntityType>
+        <EntityType Name="user_register">
+          <Key>
+            <PropertyRef Name="reg_id" />
+          </Key>
+          <Property Name="reg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="users_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_f_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_cnic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_reg_date" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_phonenum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_status" Type="Int32" />
+          <Property Name="user_hecPercentage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="yearofpassingexam" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userdep_id" Type="Int32" />
+          <Property Name="userdep_id1" Type="Int32" />
+          <NavigationProperty Name="department" Relationship="Self.FK__user_regi__userd__1920BF5C" FromRole="user_register" ToRole="department" />
+          <NavigationProperty Name="department1" Relationship="Self.FK__user_regi__userd__1A14E395" FromRole="user_register" ToRole="department1" />
+        </EntityType>
+        <Association Name="FK__user_regi__userd__1920BF5C">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="dep_id" />
+            </Principal>
+            <Dependent Role="user_register">
+              <PropertyRef Name="userdep_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user_regi__userd__1A14E395">
+          <End Role="department1" Type="Self.department1" Multiplicity="0..1" />
+          <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department1">
+              <PropertyRef Name="dep_id1" />
+            </Principal>
+            <Dependent Role="user_register">
+              <PropertyRef Name="userdep_id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="project1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin_signup" EntityType="Self.admin_signup" />
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="department1" EntityType="Self.department1" />
+          <EntitySet Name="user_register" EntityType="Self.user_register" />
+          <AssociationSet Name="FK__user_regi__userd__1920BF5C" Association="Self.FK__user_regi__userd__1920BF5C">
+            <End Role="department" EntitySet="departments" />
+            <End Role="user_register" EntitySet="user_register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user_regi__userd__1A14E395" Association="Self.FK__user_regi__userd__1A14E395">
+            <End Role="department1" EntitySet="department1" />
+            <End Role="user_register" EntitySet="user_register" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="project1ModelStoreContainer" CdmEntityContainer="project1Entities">
+          <EntitySetMapping Name="admin_signup">
+            <EntityTypeMapping TypeName="project1Model.admin_signup">
+              <MappingFragment StoreEntitySet="admin_signup">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+                <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_c_password" ColumnName="admin_c_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="project1Model.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="department1">
+            <EntityTypeMapping TypeName="project1Model.department1">
+              <MappingFragment StoreEntitySet="department1">
+                <ScalarProperty Name="dep_id1" ColumnName="dep_id1" />
+                <ScalarProperty Name="dep_name1" ColumnName="dep_name1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_register">
+            <EntityTypeMapping TypeName="project1Model.user_register">
+              <MappingFragment StoreEntitySet="user_register">
+                <ScalarProperty Name="reg_id" ColumnName="reg_id" />
+                <ScalarProperty Name="users_name" ColumnName="users_name" />
+                <ScalarProperty Name="user_f_name" ColumnName="user_f_name" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_cnic" ColumnName="user_cnic" />
+                <ScalarProperty Name="user_reg_date" ColumnName="user_reg_date" />
+                <ScalarProperty Name="user_phonenum" ColumnName="user_phonenum" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="user_address" ColumnName="user_address" />
+                <ScalarProperty Name="user_status" ColumnName="user_status" />
+                <ScalarProperty Name="user_hecPercentage" ColumnName="user_hecPercentage" />
+                <ScalarProperty Name="yearofpassingexam" ColumnName="yearofpassingexam" />
+                <ScalarProperty Name="userdep_id" ColumnName="userdep_id" />
+                <ScalarProperty Name="userdep_id1" ColumnName="userdep_id1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

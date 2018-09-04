@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="project1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin_signup">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="admin_email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="admin_password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="admin_c_password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="dep_id" />
+    </Key>
+    <Property Name="dep_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dep_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="user_register" Relationship="Self.FK__user_regi__userd__1920BF5C" FromRole="department" ToRole="user_register" />
+  </EntityType>
+  <EntityType Name="department1">
+    <Key>
+      <PropertyRef Name="dep_id1" />
+    </Key>
+    <Property Name="dep_id1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dep_name1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="user_register" Relationship="Self.FK__user_regi__userd__1A14E395" FromRole="department1" ToRole="user_register" />
+  </EntityType>
+  <EntityType Name="user_register">
+    <Key>
+      <PropertyRef Name="reg_id" />
+    </Key>
+    <Property Name="reg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_f_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_cnic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_reg_date" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_phonenum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_status" Type="Int32" />
+    <Property Name="user_hecPercentage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="yearofpassingexam" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="userdep_id" Type="Int32" />
+    <Property Name="userdep_id1" Type="Int32" />
+    <NavigationProperty Name="department" Relationship="Self.FK__user_regi__userd__1920BF5C" FromRole="user_register" ToRole="department" />
+    <NavigationProperty Name="department1" Relationship="Self.FK__user_regi__userd__1A14E395" FromRole="user_register" ToRole="department1" />
+  </EntityType>
+  <Association Name="FK__user_regi__userd__1920BF5C">
+    <End Role="department" Type="Self.department" Multiplicity="0..1" />
+    <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department">
+        <PropertyRef Name="dep_id" />
+      </Principal>
+      <Dependent Role="user_register">
+        <PropertyRef Name="userdep_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__user_regi__userd__1A14E395">
+    <End Role="department1" Type="Self.department1" Multiplicity="0..1" />
+    <End Role="user_register" Type="Self.user_register" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department1">
+        <PropertyRef Name="dep_id1" />
+      </Principal>
+      <Dependent Role="user_register">
+        <PropertyRef Name="userdep_id1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="project1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin_signup" EntityType="Self.admin_signup" />
+    <EntitySet Name="departments" EntityType="Self.department" />
+    <EntitySet Name="department1" EntityType="Self.department1" />
+    <EntitySet Name="user_register" EntityType="Self.user_register" />
+    <AssociationSet Name="FK__user_regi__userd__1920BF5C" Association="Self.FK__user_regi__userd__1920BF5C">
+      <End Role="department" EntitySet="departments" />
+      <End Role="user_register" EntitySet="user_register" />
+    </AssociationSet>
+    <AssociationSet Name="FK__user_regi__userd__1A14E395" Association="Self.FK__user_regi__userd__1A14E395">
+      <End Role="department1" EntitySet="department1" />
+      <End Role="user_register" EntitySet="user_register" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
